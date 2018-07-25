@@ -1,12 +1,26 @@
 import ActionTypes from '../actions/actionTypes';
+import initialState from './initialState';
 
-const { LOAD_COURSES_SUCCESS } = ActionTypes;
+const { LOAD_COURSES_SUCCESS, CREATE_COURSE_SUCCESS, UPDATE_COURSE_SUCCESS  } = ActionTypes;
 
-export default function courseReducer(state = [], action) {
+export default function courseReducer(state = initialState.courses, action) {
     switch(action.type) {
+
         case LOAD_COURSES_SUCCESS:
             return action.courses;
         
+        case CREATE_COURSE_SUCCESS:
+            return [
+                ...state,
+                Object.assign({}, action.course)
+            ];
+
+        case UPDATE_COURSE_SUCCESS:
+            return [
+                ...state.filter(course => course.id !== action.course.id),
+                Object.assign({}, action.course)
+            ];
+
         default:
             return state;
     }
