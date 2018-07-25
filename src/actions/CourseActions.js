@@ -6,11 +6,11 @@ export function loadCoursesSuccess(courses) {
 }
 
 export function createCourseSuccess(course) {
-    return { type: ActionTypes.CREATE_COURSES_SUCCESS, course };
+    return { type: ActionTypes.CREATE_COURSE_SUCCESS, course };
 }
 
 export function updateCourseSuccess(course) {
-    return { type: ActionTypes.UPDATE_COURSES_SUCCESS, course };
+    return { type: ActionTypes.UPDATE_COURSE_SUCCESS, course };
 }
 
 export function loadCourses() {
