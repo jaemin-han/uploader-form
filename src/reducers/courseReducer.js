@@ -1,7 +1,7 @@
 import ActionTypes from '../actions/actionTypes';
 import initialState from './initialState';
 
-const { LOAD_COURSES_SUCCESS, CREATE_COURSE_SUCCESS, UPDATE_COURSE_SUCCESS  } = ActionTypes;
+const { LOAD_COURSES_SUCCESS, CREATE_COURSE_SUCCESS, UPDATE_COURSE_SUCCESS, DELETE_COURSE_SUCCESS  } = ActionTypes;
 
 export default function courseReducer(state = initialState.courses, action) {
     switch(action.type) {
@@ -19,6 +19,12 @@ export default function courseReducer(state = initialState.courses, action) {
             return [
                 ...state.filter(course => course.id !== action.course.id),
                 Object.assign({}, action.course)
+            ];
+
+        case DELETE_COURSE_SUCCESS:
+            console.log("the id to exclude: '" + action.id + "'");
+            return [
+                ...state.filter(course => course.id !== action.id)
             ];
 
         default:
