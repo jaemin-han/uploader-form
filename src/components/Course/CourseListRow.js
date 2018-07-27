@@ -10,8 +10,18 @@ const CourseListRow = ({course, onDelete}) => {
             <td>{course.authorId}</td>
             <td>{course.category}</td>
             <td>{course.length}</td>
-            <td><Link to='/courses' onClick={onDelete}>Delete</Link></td>
+            {/* <td><Link to='/courses' onClick={onDelete}>Delete</Link></td> */}
             {/* (course.id) */}
+            <td>
+                <button
+                type="submit"
+                name="deleteCourseButton"
+                onClick={onDelete}
+                value={course.id}
+                >
+                Delete
+                </button>
+            </td>
         </tr>
     );
 };

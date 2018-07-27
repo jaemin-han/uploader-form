@@ -18,8 +18,8 @@ class CoursesPage extends React.Component {
         browserHistory.push('/course');
     }
 
-    deleteCourse(id, e) {
-        e.preventDefault();
+    deleteCourse(event, id) {
+        event.preventDefault();
         this.props.actions.deleteCourse(id)
         .catch(errMsg => {
             toastr.error(errMsg);
@@ -41,7 +41,7 @@ class CoursesPage extends React.Component {
                 />
                 <CourseList
                     courses={courses}
-                    onDelete={this.onDelete}
+                    onDelete={this.deleteCourse}
                 />
             </div>
         );
